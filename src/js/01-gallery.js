@@ -15,14 +15,14 @@ const newGalleryMarkup = galleryItems.map(({ preview, original, description }) =
 </li>`);
 
 galleryElem.insertAdjacentHTML('afterbegin', newGalleryMarkup.join(''));
-galleryElem.addEventListener('click', onPictureClick);
+// galleryElem.addEventListener('click', onPictureClick);
 
-function onPictureClick(event) {
-    event.preventDefault();
-    if (event.target.nodeName !== "IMG") {
-        return;
-    }
-}
+// function onPictureClick(event) {
+//     event.preventDefault();
+//     if (event.target.nodeName !== "IMG") {
+//         return;
+//     }
+// }
 
 new SimpleLightbox('.gallery a', {
     captionsData: "alt",

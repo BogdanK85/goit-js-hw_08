@@ -5,7 +5,7 @@ const inputEmailElem = formElem.querySelector('input');
 const inputMessageElem = formElem.querySelector('textarea');
 //const submitBtn = formElem.querySelector('submit');
 
-let formStorageData = {};
+let formStorageData = JSON.parse(localStorage.getItem("feedback-form-state")) || {};
 
 formElem.addEventListener('input', throttle(onFormIpnut, 500))
 formElem.addEventListener('submit', onSubmitBtnClick)
@@ -29,15 +29,15 @@ function onSubmitBtnClick(event) {
 }
 
 function savedUserFormInput() {
-    const savedUsersInput = localStorage.getItem("feedback-form-state")
+    const savedUsersInput = JSON.parse(localStorage.getItem("feedback-form-state"))
     if (savedUsersInput) {
         if (savedUsersInput.email) {
-            inputEmailElem.value = savedUsersInput.email;
-            formStorageData.email = savedUsersInput.email;
+            inputEmailElem.value = savedUsersInput.email || '';
+            formStorageData.email = savedUsersInput.email || '';
         } 
         if (savedUsersInput.message) {
-            inputMessageElem.value = savedUsersInput.message;
-            formStorageData.message = savedUsersInput.message;
+            inputMessageElem.value = savedUsersInput.message || '';
+            formStorageData.message = savedUsersInput.message || '';
         }
     }
 }

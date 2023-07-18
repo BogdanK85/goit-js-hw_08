@@ -11,7 +11,7 @@ function playerSaveTimeInStorage(data) {
 
 const trottlePlayerSaveTime = throttle(playerSaveTimeInStorage, 1000);
 const savedPlayerCurrentTime = localStorage.getItem('videoplayer-current-time');
-player.setCurrentTime(savedPlayerCurrentTime);
+player.setCurrentTime(savedPlayerCurrentTime || 0);
 player.on('timeupdate', trottlePlayerSaveTime);
     
 
